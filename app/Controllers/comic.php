@@ -27,5 +27,8 @@ class Comic extends BaseController
     public function detail($slug)
     {
         echo $slug;
+
+
+        //coba perubahan nya.......
     }
 }
