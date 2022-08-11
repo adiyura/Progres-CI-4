@@ -1,0 +1,9 @@
+.sampul{
+
+    width: 70px;
+}
+
+.tabelku >  tbody >  tr > *{
+
+    vertical-align: middle;
+}
