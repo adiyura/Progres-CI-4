@@ -9,7 +9,7 @@
     <!-- end boostrap css -->
 
     <!-- My Csss -->
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="/css/style.css">
     <title> <?= $tittle; ?> </title>
 </head>
@@ -20,6 +20,31 @@
     <?= $this->renderSection('content'); ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.js"></script>
+    <script type="text/javascript">
+        // Swal.fire({
+        //     icon: 'success',
+        //     title: 'success',
+        //     text: 'Berhasil Tambah data'
+        // })
+        // Swal.fire('Any fool can use a computer')
+        // const flash = $('.swal').data('swal');
+        // if (flash) {
+        //     Swal.fire({
+        //         icon: 'success',
+        //         title: 'success',
+        //         text: 'Berhasil Tambah data'
+        //     })
+        // }
+
+        <?php if (session()->getFlashdata('pesan')) { ?>
+            Swal.fire({
+                icon: 'success',
+                title: 'success',
+                text: 'Berhasil Tambah data'
+            })
+        <?php } ?>
+    </script>
 </body>
 
 </html>

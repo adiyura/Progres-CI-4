@@ -17,21 +17,50 @@ class Comic extends BaseController
         // $komik = $this->komikModel->findAll();
         $data = [
 
-            'tittle' => 'Comic',
+            'tittle' => 'Komik',
             'komik' => $this->komikModel->getKomik()
         ];
-
         return view('comic/index', $data);
     }
 
     public function detail($slug)
     {
-        $komik = $this->komikModel->getKomik($slug);
+
         $data = [
             'tittle' => 'Detail Komik',
-            'komik' => $komik
+            'komik' => $this->komikModel->getKomik($slug)
         ];
 
-        return view('komik/detail', $data);
+        return view('comic/detail', $data);
+    }
+
+
+    public function create()
+    {
+        $data = [
+            'tittle' => 'Form Tambah Data'
+        ];
+
+        return view('comic/create', $data);
+    }
+
+    public function save()
+    {
+
+
+        $slug =  url_title($this->request->getVar('judul'), '-', true);
+        $tambah = $this->komikModel->save(
+            [
+                'judul' => $this->request->getVar('judul'),
+                'penulis' => $this->request->getVar('penulis'),
+                'sampul' => $this->request->getVar('sampul'),
+                'slug' => $slug
+            ]
+        );
+
+        if ($tambah) {
+            session()->setFlashdata('pesan', 'Berhasil Tambah Data');
+            return redirect()->to('/comic');
+        }
     }
 }

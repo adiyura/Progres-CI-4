@@ -7,6 +7,7 @@
     <h1 class="mt-2"> Daftar Komik</h1>
     <div class="row">
         <div class="col">
+            <a href="/comic/create" class="btn btn-primary">Tambah Data Komik</a>
             <table class="table tabelku">
                 <thead>
                     <tr>
